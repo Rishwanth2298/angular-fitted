@@ -4,7 +4,7 @@ const cors = require('cors');
 
 const nodemailer = require("nodemailer");
 
-const PORT = 3000;
+
 
 const app = express();
 
@@ -55,8 +55,8 @@ app.post('/enroll', async(req, res) => {
     res.status(200).send({"message": "Data received"});
 })
 
-app.listen(PORT, function(){
-    console.log("Server running on localhost:" + PORT);
+app.listen(process.env.PORT || 3000, function(){
+    console.log("SERVER STARTED PORT: 3000");
 });
 
 
