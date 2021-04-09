@@ -10,13 +10,17 @@ const app = express();
 
 app.use(bodyParser.json());
 
-app.use(cors({origin: "*"}));
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*"); // update to match the domain you will make the request from
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
 
-app.get('/', function(_req,res){
+app.get('/',cors(), function(req,res){
     res.send('Hello from server');
 })
 
-app.post('/enroll', async(req, res) => {
+app.post('/', async(req, res) => {
     const {email}= req.body;
     const {phone}= req.body;
     const {name}= req.body;
@@ -27,7 +31,7 @@ app.post('/enroll', async(req, res) => {
         secure: false, // true for 465, false for other ports
         auth: {
           user: 'rishwanths2298a@gmail.com',
-          pass: 'suji2298'
+          pass: 'suji2298a'
         },
       });
     
