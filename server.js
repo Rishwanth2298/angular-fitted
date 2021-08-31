@@ -17,7 +17,7 @@ app.use(function(req, res, next) {
 });
 
 app.get('/',cors(), function(req,res){
-    res.send('Hello from server');
+    res.send('Hello from Brag Tech');
 })
 
 app.post('/', async(req, res) => {
@@ -31,7 +31,7 @@ app.post('/', async(req, res) => {
         secure: false, // true for 465, false for other ports
         auth: {
           user: 'rishwanths2298a@gmail.com',
-          pass: 'suji2298a'
+          pass: 'Suji2298'
         },
       });
     
