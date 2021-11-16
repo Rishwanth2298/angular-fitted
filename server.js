@@ -1,22 +1,19 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-
 const nodemailer = require("nodemailer");
-
-
-
 const app = express();
 
 app.use(bodyParser.json());
 
-app.use(function(req, res, next) {
+app.use(cors({origin:"*"}));
+app.use(function(_req, res, next) {
   res.header("Access-Control-Allow-Origin", "*"); // update to match the domain you will make the request from
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   next();
 });
 
-app.get('/',cors(), function(req,res){
+app.get('/',function(_req,res){
     res.send('Hello from Brag Tech');
 })
 
@@ -30,7 +27,7 @@ app.post('/', async(req, res) => {
         port: 587,
         secure: false, // true for 465, false for other ports
         auth: {
-          user: 'rishwanths2008a@gmail.com',
+          user: 'rishwanths2298a@gmail.com',
           pass: 'Suji2298'
         },
       });
