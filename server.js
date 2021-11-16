@@ -6,13 +6,13 @@ const app = express();
 app.use(bodyParser.json());
 
 app.use(cors({origin:"*"}));
-app.use(function(_req, res, next) {
+app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*"); // update to match the domain you will make the request from
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   next();
 });
 
-app.get('/',function(_req,res){
+app.get('/',function(req,res){
     res.send('Hello from Brag Tech');
 })
 
