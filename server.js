@@ -29,7 +29,7 @@ app.post('/', async(req, res) => {
           user: 'rishwanths2298a@gmail.com',
           pass: 'Suji2298'
         },
-      });
+      }); 
     
       const msg ={
         
