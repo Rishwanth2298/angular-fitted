@@ -30,7 +30,7 @@ app.post('/', async(req, res) => {
         port: 587,
         secure: false, // true for 465, false for other ports
         auth: {
-          user: 'rishwanths2298a@gmail.com',
+          user: 'rishwanths2008a@gmail.com',
           pass: 'Suji2298'
         },
       });
