@@ -4,8 +4,6 @@ const cors = require('cors');
 
 const nodemailer = require("nodemailer");
 
-// use it before all route definitions
-app.use(cors({origin: '*'}));
 
 const app = express();
 
@@ -31,7 +29,7 @@ app.use(function (req, res, next) {
     next();
 });
 
-app.get('/',cors(), function(req,res){
+app.get('/', function(req,res){
     res.send('Hello from Brag Tech');
 })
 
