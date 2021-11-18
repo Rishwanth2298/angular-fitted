@@ -10,17 +10,20 @@ const app = express();
 
 app.use(bodyParser.json());
 
-app.use(cors({origin: "*"}));
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*"); // update to match the domain you will make the request from
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
 
-app.get('/', function(_req,res){
-    res.send('Hello from server');
+app.get('/',cors(), function(req,res){
+    res.send('Hello from Brag Tech');
 })
 
 app.post('/', async(req, res) => {
-    const {name}= req.body;  
     const {email}= req.body;
     const {phone}= req.body;
-    const {website}= req.body;
+    const {name}= req.body;
     const {message}= req.body;
     let transporter = nodemailer.createTransport({
         host: "smtp.gmail.com",
@@ -39,7 +42,7 @@ app.post('/', async(req, res) => {
           
             subject: "Angular Bragtech Form", // Subject line
             text: "Contact Form ", // plain text body
-            html: `Name: ${name} , Mail id: ${email} , Mobile Number: ${phone} ,Website URL: ${website}, Message: ${message}`,
+            html: `Name: ${name} , Mail id: ${email} , Mobile Number: ${phone} , Message: ${message}`,
            
              // html body
       }
