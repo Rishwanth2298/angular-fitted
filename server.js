@@ -16,7 +16,7 @@ app.get('/', function(_req,res){
     res.send('Hello from server');
 })
 
-app.post('/', async(req, res) => {
+app.post('/enroll', async(req, res) => {
     const {name}= req.body;  
     const {email}= req.body;
     const {phone}= req.body;
