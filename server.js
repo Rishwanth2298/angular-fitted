@@ -4,7 +4,8 @@ const cors = require('cors');
 
 const nodemailer = require("nodemailer");
 
-
+// use it before all route definitions
+app.use(cors({origin: 'https://bragtech.herokuapp.com'}));
 
 const app = express();
 
